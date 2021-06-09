@@ -11,7 +11,7 @@ namespace BarberShop.Service.Repository.Database
 {
     public class ShopAddressRepository : DatabaseConfiguration, IShopAddressRepository
     {
-        public void Create(ShopAddress shopAddress)
+        public void Create(Shop shopAddress)
         {
             string query = "insert into shopAddress values(@P0, @P1, @P2, @P3, @P4)";
 
@@ -34,7 +34,7 @@ namespace BarberShop.Service.Repository.Database
             }
         }
 
-        public void Delete(ShopAddress shopAddress)
+        public void Delete(Shop shopAddress)
         {
             string query = "delete from shopAddress where id_shop = @P0";
 
@@ -53,7 +53,7 @@ namespace BarberShop.Service.Repository.Database
             }
         }
 
-        public List<ShopAddress> GetAll()
+        public List<Shop> GetAll()
         {
             string query = "select * from shopAddress";
 
@@ -67,11 +67,11 @@ namespace BarberShop.Service.Repository.Database
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
-                    List<ShopAddress> shopAddresses = new List<ShopAddress>();
+                    List<Shop> shopAddresses = new List<Shop>();
 
                     while (reader.Read())
                     {
-                        shopAddresses.Add(new ShopAddress()
+                        shopAddresses.Add(new Shop()
                         {
                             Id = Convert.ToInt32(reader["id_shop"]),
                             Name = Convert.ToString(reader["name_shop"]),
@@ -87,7 +87,7 @@ namespace BarberShop.Service.Repository.Database
             }
         }
 
-        public ShopAddress Read(string name)
+        public Shop Read(string name)
         {
             string query = "select * from shopAddress where name_shop = @P0";
 
@@ -103,7 +103,7 @@ namespace BarberShop.Service.Repository.Database
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
-                    ShopAddress shopAddress = new ShopAddress();
+                    Shop shopAddress = new Shop();
 
                     if (reader.Read())
                     {
@@ -120,7 +120,7 @@ namespace BarberShop.Service.Repository.Database
             }
         }
 
-        public ShopAddress Read(int id)
+        public Shop Read(int id)
         {
             string query = "select * from shopAddress where id_shop = @P0";
 
@@ -136,7 +136,7 @@ namespace BarberShop.Service.Repository.Database
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
-                    ShopAddress shopAddress = new ShopAddress();
+                    Shop shopAddress = new Shop();
 
                     if (reader.Read())
                     {
@@ -153,7 +153,7 @@ namespace BarberShop.Service.Repository.Database
             }
         }
 
-        public void Update(ShopAddress shopAddress)
+        public void Update(Shop shopAddress)
         {
             string query = "update shopAddress set name_shop = @P0, street_shop = @P1, number_shop = @P2, city_shop = @P3," +
                 "state_shop = @P4 where id_shop = @P5";

@@ -18,35 +18,35 @@ namespace BarberShop.Service.Controllers
 
         [HttpPost]
         [Route("CreateShopAddress")]
-        public void Create(ShopAddress shopAddress)
+        public void Create(Shop shopAddress)
         {
             _shopAddressService.Create(shopAddress);
         }
 
         [HttpDelete]
         [Route("DeleteShopAddress")]
-        public void Delete(ShopAddress shopAddress)
+        public void Delete(Shop shopAddress)
         {
             _shopAddressService.Delete(shopAddress);
         }
 
         [HttpGet]
         [Route("ReadShopAddress/{name}")]
-        public ShopAddress Read(string name)
+        public Shop Read(string name)
         {
             return _shopAddressService.Read(name);
         }
 
         [HttpGet]
         [Route("GetAllShopAddresses")]
-        public List<ShopAddress> GetAll()
+        public List<Shop> GetAll()
         {
             return _shopAddressService.GetAll();
         }
 
         [HttpPut]
         [Route("UpdateShopAddress")]
-        public void Update(ShopAddress shopAddress)
+        public void Update(Shop shopAddress)
         {
             _shopAddressService.Update(shopAddress);
         }

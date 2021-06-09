@@ -21,15 +21,15 @@ namespace BarberShop.Tests
         private int _number = 100;
         private string _city = "City";
         private string _state = "State";
-        private List<ShopAddress> _shopAddresses;
+        private List<Shop> _shopAddresses;
 
         public ShopAddressTests()
         {
             _shopAddressRepository = new Mock<IShopAddressRepository>();
             _logger = new Mock<ILogger>();
-            _shopAddresses = new List<ShopAddress>()
+            _shopAddresses = new List<Shop>()
             {
-                new ShopAddress()
+                new Shop()
                 {
                     Id = _id,
                     Name = _name,
@@ -37,7 +37,7 @@ namespace BarberShop.Tests
                     City = _city,
                     State = _state
                 },
-                new ShopAddress()
+                new Shop()
                 {
                     Id = _id,
                     Name = _name,
@@ -51,7 +51,7 @@ namespace BarberShop.Tests
         [Fact]
         public void CreateShopAddressNullTest()
         {
-            ShopAddress shopAddress = null;
+            Shop shopAddress = null;
 
             _logger.Setup(x => x.CreateLog("Error", "Exception Message"));
 
@@ -65,7 +65,7 @@ namespace BarberShop.Tests
         [Fact]
         public void CreateShopAddressNameNullTest()
         {
-            ShopAddress shopAddress = new ShopAddress()
+            Shop shopAddress = new Shop()
             {
                 Name = null,
                 Street = _street,
@@ -86,7 +86,7 @@ namespace BarberShop.Tests
         [Fact]
         public void CreateShopAddressNameEmptyTest()
         {
-            ShopAddress shopAddress = new ShopAddress()
+            Shop shopAddress = new Shop()
             {
                 Name = "",
                 Street = _street,
@@ -107,7 +107,7 @@ namespace BarberShop.Tests
         [Fact]
         public void CreateShopAddressStreetNullTest()
         {
-            ShopAddress shopAddress = new ShopAddress()
+            Shop shopAddress = new Shop()
             {
                 Name = _name,
                 Street = null,
@@ -128,7 +128,7 @@ namespace BarberShop.Tests
         [Fact]
         public void CreateShopAddressStreetEmptyTest()
         {
-            ShopAddress shopAddress = new ShopAddress()
+            Shop shopAddress = new Shop()
             {
                 Name = _name,
                 Street = "",
@@ -149,7 +149,7 @@ namespace BarberShop.Tests
         [Fact]
         public void CreateShopAddressCityNullTest()
         {
-            ShopAddress shopAddress = new ShopAddress()
+            Shop shopAddress = new Shop()
             {
                 Name = _name,
                 Street = _street,
@@ -170,7 +170,7 @@ namespace BarberShop.Tests
         [Fact]
         public void CreateShopAddressCityEmptyTest()
         {
-            ShopAddress shopAddress = new ShopAddress()
+            Shop shopAddress = new Shop()
             {
                 Name = _name,
                 Street = _street,
@@ -191,7 +191,7 @@ namespace BarberShop.Tests
         [Fact]
         public void CreateShopAddressStateNullTest()
         {
-            ShopAddress shopAddress = new ShopAddress()
+            Shop shopAddress = new Shop()
             {
                 Name = _name,
                 Street = _street,
@@ -212,7 +212,7 @@ namespace BarberShop.Tests
         [Fact]
         public void CreateShopAddressStateEmptyTest()
         {
-            ShopAddress shopAddress = new ShopAddress()
+            Shop shopAddress = new Shop()
             {
                 Name = _name,
                 Street = _street,
@@ -233,7 +233,7 @@ namespace BarberShop.Tests
         [Fact]
         public void CreateShopAddressNumberLessThanZeroTest()
         {
-            ShopAddress shopAddress = new ShopAddress()
+            Shop shopAddress = new Shop()
             {
                 Name = _name,
                 Street = _street,
@@ -254,7 +254,7 @@ namespace BarberShop.Tests
         [Fact]
         public void CreateShopAddressTest()
         {
-            ShopAddress shopAddress = new ShopAddress()
+            Shop shopAddress = new Shop()
             {
                 Name = _name,
                 Street = _street,
@@ -277,7 +277,7 @@ namespace BarberShop.Tests
         [Fact]
         public void DeleteShopAddressNullTest()
         {
-            ShopAddress shopAddress = null;
+            Shop shopAddress = null;
 
             _logger.Setup(x => x.CreateLog("Error", "Exception Message"));
 
@@ -291,7 +291,7 @@ namespace BarberShop.Tests
         [Fact]
         public void DeleteShopAddressIdLessThanZeroTest()
         {
-            ShopAddress shopAddress = new ShopAddress()
+            Shop shopAddress = new Shop()
             {
                 Id = -1
             };
@@ -308,7 +308,7 @@ namespace BarberShop.Tests
         [Fact]
         public void DeleteShopAddressTest()
         {
-            ShopAddress shopAddress = new ShopAddress()
+            Shop shopAddress = new Shop()
             {
                 Id = _id,
                 Name = _name,
@@ -362,7 +362,7 @@ namespace BarberShop.Tests
         {
             string name = _name;
 
-            var shopAddress = new ShopAddress()
+            var shopAddress = new Shop()
             {
                 Id = _id,
                 Name = _name,
@@ -388,7 +388,7 @@ namespace BarberShop.Tests
         [Fact]
         public void UpdateShopAddressNullTest()
         {
-            ShopAddress shopAddress = null;
+            Shop shopAddress = null;
 
             _logger.Setup(x => x.CreateLog("Error", "Exception Message"));
 
@@ -402,7 +402,7 @@ namespace BarberShop.Tests
         [Fact]
         public void UpdateShopAddressNameNullTest()
         {
-            ShopAddress shopAddress = new ShopAddress()
+            Shop shopAddress = new Shop()
             {
                 Name = null,
                 Street = _street,
@@ -423,7 +423,7 @@ namespace BarberShop.Tests
         [Fact]
         public void UpdateShopAddressNameEmptyTest()
         {
-            ShopAddress shopAddress = new ShopAddress()
+            Shop shopAddress = new Shop()
             {
                 Name = "",
                 Street = _street,
@@ -444,7 +444,7 @@ namespace BarberShop.Tests
         [Fact]
         public void UpdateShopAddressStreetNullTest()
         {
-            ShopAddress shopAddress = new ShopAddress()
+            Shop shopAddress = new Shop()
             {
                 Name = _name,
                 Street = null,
@@ -465,7 +465,7 @@ namespace BarberShop.Tests
         [Fact]
         public void UpdateShopAddressStreetEmptyTest()
         {
-            ShopAddress shopAddress = new ShopAddress()
+            Shop shopAddress = new Shop()
             {
                 Name = _name,
                 Street = "",
@@ -486,7 +486,7 @@ namespace BarberShop.Tests
         [Fact]
         public void UpdateShopAddressCityNullTest()
         {
-            ShopAddress shopAddress = new ShopAddress()
+            Shop shopAddress = new Shop()
             {
                 Name = _name,
                 Street = _street,
@@ -507,7 +507,7 @@ namespace BarberShop.Tests
         [Fact]
         public void UpdateShopAddressCityEmptyTest()
         {
-            ShopAddress shopAddress = new ShopAddress()
+            Shop shopAddress = new Shop()
             {
                 Name = _name,
                 Street = _street,
@@ -528,7 +528,7 @@ namespace BarberShop.Tests
         [Fact]
         public void UpdateShopAddressStateNullTest()
         {
-            ShopAddress shopAddress = new ShopAddress()
+            Shop shopAddress = new Shop()
             {
                 Name = _name,
                 Street = _street,
@@ -549,7 +549,7 @@ namespace BarberShop.Tests
         [Fact]
         public void UpdateShopAddressStateEmptyTest()
         {
-            ShopAddress shopAddress = new ShopAddress()
+            Shop shopAddress = new Shop()
             {
                 Name = _name,
                 Street = _street,
@@ -570,7 +570,7 @@ namespace BarberShop.Tests
         [Fact]
         public void UpdateShopAddressNumberLessThanZeroTest()
         {
-            ShopAddress shopAddress = new ShopAddress()
+            Shop shopAddress = new Shop()
             {
                 Name = _name,
                 Street = _street,
@@ -591,7 +591,7 @@ namespace BarberShop.Tests
         [Fact]
         public void UpdateShopAddressTest()
         {
-            ShopAddress shopAddress = new ShopAddress()
+            Shop shopAddress = new Shop()
             {
                 Name = _name,
                 Street = _street,
@@ -614,7 +614,7 @@ namespace BarberShop.Tests
         [Fact]
         public void GetAllNullShopAddressesTest()
         {
-            List<ShopAddress> shopAddresses = null;
+            List<Shop> shopAddresses = null;
 
             _logger.Setup(x => x.CreateLog("Error", "Exception Message"));
             _shopAddressRepository.Setup(x => x.GetAll()).Returns(shopAddresses);
@@ -630,7 +630,7 @@ namespace BarberShop.Tests
         [Fact]
         public void GetAllShopAddressesTest()
         {
-            List<ShopAddress> shopAddresses = _shopAddresses;
+            List<Shop> shopAddresses = _shopAddresses;
 
             _logger.Setup(x => x.CreateLog("Database", "GetAllShopAddresses"));
             _shopAddressRepository.Setup(x => x.GetAll()).Returns(shopAddresses);

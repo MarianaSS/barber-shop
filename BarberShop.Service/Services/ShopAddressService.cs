@@ -19,7 +19,7 @@ namespace BarberShop.Service.Services
             _logger = logger;
         }
 
-        public void Create(ShopAddress shopAddress)
+        public void Create(Shop shopAddress)
         {
             try
             {
@@ -42,7 +42,7 @@ namespace BarberShop.Service.Services
             }
         }
 
-        public void Delete(ShopAddress shopAddress)
+        public void Delete(Shop shopAddress)
         {
             try
             {
@@ -61,7 +61,7 @@ namespace BarberShop.Service.Services
             }
         }
 
-        public List<ShopAddress> GetAll()
+        public List<Shop> GetAll()
         {
             try
             {
@@ -80,7 +80,7 @@ namespace BarberShop.Service.Services
             }
         }
 
-        public ShopAddress Read(string name)
+        public Shop Read(string name)
         {
             try
             {
@@ -99,7 +99,7 @@ namespace BarberShop.Service.Services
             }
         }
 
-        public ShopAddress Read(int id)
+        public Shop Read(int id)
         {
             try
             {
@@ -118,7 +118,7 @@ namespace BarberShop.Service.Services
             }
         }
 
-        public void Update(ShopAddress shopAddress)
+        public void Update(Shop shopAddress)
         {
             try
             {

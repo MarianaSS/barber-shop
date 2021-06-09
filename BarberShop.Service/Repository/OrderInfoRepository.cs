@@ -83,7 +83,7 @@ namespace BarberShop.Service.Repository.Database
                             {
                                 Id = Convert.ToInt32(reader["id_employee"])
                             },
-                            ShopAddressInfo = new ShopAddress()
+                            ShopAddressInfo = new Shop()
                             {
                                 Id = Convert.ToInt32(reader["id_shop"])
                             },
@@ -119,7 +119,7 @@ namespace BarberShop.Service.Repository.Database
                     OrderInfo orderInfo = new OrderInfo {
                         CustomerInfo = new Customer(),
                         EmployeeInfo = new Employee(),
-                        ShopAddressInfo = new ShopAddress()
+                        ShopAddressInfo = new Shop()
                     };
 
                     if (reader.Read())
