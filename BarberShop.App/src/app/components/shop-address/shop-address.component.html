@@ -1,0 +1,70 @@
+<button type="button" class="btn mt-2 mb-2 my-dark my-btn-dark" (click)="this.showForm = !this.showForm">Add new</button>
+<div class="card mb-3" *ngIf="this.showForm">
+    <form #shopAddressForm="ngForm" (submit)="OnSubmit()" class="p-3">
+        <div class="form-group">
+            <label for="name">Shop name</label>
+            <input type="text" class="form-control" name="name" [(ngModel)]="this.shopAddress.name" required>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="name">Street</label>
+                    <input type="text" class="form-control" name="street" [(ngModel)]="this.shopAddress.street" required>
+                </div>
+            </div>
+            <div class="col col-md-4">
+                <div class="form-group">
+                    <label for="number">Number</label>
+                    <input type="number" class="form-control" name="number" [(ngModel)]="this.shopAddress.number" required>
+                </div>
+            </div>      
+        </div> 
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" name="city" [(ngModel)]="this.shopAddress.city" required>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <input type="text" class="form-control" name="state" [(ngModel)]="this.shopAddress.state" required>
+                </div>
+            </div>  
+        </div>       
+        <button type="submit" [disabled]="!shopAddressForm.form.valid" class="btn my-dark my-btn-dark">Submit</button>
+    </form>
+</div>
+<h3>Shops</h3>
+<hr>
+<div class="container">
+    <div class="content" *ngFor="let shop of shopAddresses">
+        <div class="card mb-3">
+            <div class="card-header d-flex justify-content-between">
+                <h4>
+                  {{shop.name}}
+                </h4>
+                <button (click)="shop.hide = !shop.hide" class="btn my-dark my-btn-dark btn-sm ml-">
+                  <i [ngClass]="!shop.hide ? 'fa fa-plus' : 'fa fa-minus'"></i>
+                </button>
+              </div>
+              <ul class="list-group p-3 list-unstyled" *ngIf="shop.hide">
+            <li class="list-item">Name: {{shop.name}}</li>
+            <hr>
+            <li class="list-item">Street: {{shop.street}}</li>
+            <hr>
+            <li class="list-item">Number: {{shop.number}}</li>
+            <hr>
+            <li class="list-item">City: {{shop.city}}</li>
+            <hr>
+            <li class="list-item">State: {{shop.state}}</li>
+            <hr>
+            <li class="list-item">
+              <button type="button" class="btn btn-success btn-sm mr-2" (click)="EditInput(shop)"><i class="fas fa-edit"></i></button>
+              <button type="button" class="btn btn-danger btn-sm" (click)="Delete(shop)"><i class="fas fa-trash-alt"></i></button>
+           </li>
+          </ul> 
+        </div>   
+    </div>
+</div>
