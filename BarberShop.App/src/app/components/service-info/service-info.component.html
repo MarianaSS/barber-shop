@@ -1,0 +1,50 @@
+<button type="button" class="btn mt-2 mb-2 my-dark my-btn-dark" (click)="this.showForm = !this.showForm">Add new</button>
+<div class="card mb-3" *ngIf="this.showForm">
+    <form #serviceForm="ngForm" (submit)="OnSubmit()" class="p-3">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" name="name" [(ngModel)]="this.serviceInfo.name" required>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="currency">Value</label>
+                    <input class="form-control" name="currency" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left' }" [(ngModel)]="this.serviceInfo.value" required>
+                </div>
+            </div> 
+        </div>     
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" name="description" [(ngModel)]="this.serviceInfo.description" required>
+        </div> 
+        <button type="submit" [disabled]="!serviceForm.form.valid" class="btn my-dark my-btn-dark">Submit</button>
+    </form>
+</div>
+<h3>Services</h3>
+<hr>
+<div class="container">
+    <div class="content" *ngFor="let serviceInfo of servicesInfo">
+        <div class="card mb-3">
+            <div class="card-header d-flex justify-content-between">
+                <h4>{{serviceInfo.name}}</h4>
+                <button (click)="serviceInfo.hide = !serviceInfo.hide" class="btn my-dark my-btn-dark btn-sm ml-">
+                    <i [ngClass]="!serviceInfo.hide ? 'fa fa-plus' : 'fa fa-minus'"></i>
+                </button>
+            </div>
+            <ul class="list-group p-3 list-unstyled" *ngIf="serviceInfo.hide">
+                <li class="list-item">Name: {{serviceInfo.name}}</li>
+                <hr>
+                <li class="list-item">Description: {{serviceInfo.description}}</li>
+                <hr>
+                <li class="list-item">Value: {{serviceInfo.value | currency : 'R$'}}</li>
+                <hr>
+                <li class="list-item">
+                    <button type="button" class="btn btn-success btn-sm mr-2" (click)="EditInput(serviceInfo)"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-danger btn-sm" (click)="Delete(serviceInfo)"><i class="fas fa-trash-alt"></i></button>
+                 </li>
+            </ul>
+        </div>  
+    </div>
+</div>
